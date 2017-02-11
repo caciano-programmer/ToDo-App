@@ -1,0 +1,53 @@
+*
+{
+    font-family:    Arial;
+}
+
+body
+{
+    margin:             auto;
+    background-color:   lightgray;
+    text-align:         center;
+}
+
+h1
+{
+    font-size:  400%;
+}
+
+.container
+{
+    background-color:   white;
+    font-weight:        bold;
+    margin-top:         125px;
+    margin-left:        auto;
+    margin-right:       auto;
+    border-style:       solid;
+    height:             400px;
+    width:              500px;
+    color:              black;
+    padding:            15px;
+}
+
+.container div[class="inputs"]
+{
+    text-align:     left;
+    margin-left:    50px;
+    margin-top:     60px;
+}
+
+.container div[class="inputs"] label
+{
+    width:      100px;
+    display:    inline-block;
+}
+
+.container button
+{
+    display:        inline-block;
+    width:          125px;
+    margin:         60px;
+    font-weight:    bold;
+}
+
+
