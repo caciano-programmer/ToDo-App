@@ -10,7 +10,6 @@ year = date.getYear();
 var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
 
-var month = new Date().getMonth();
 var months = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 document.getElementById("month").innerHTML = months[month];
