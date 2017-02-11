@@ -6,7 +6,7 @@
 body
 {
     margin:             auto;
-    background-color:   lightgray;
+    background-color:   #dbdddd;
     text-align:         center;
 }
 
@@ -55,7 +55,6 @@ h1
     margin:         auto;
     width:          800px;
     height:         550px;
-    border-style:   solid;
 }
 
 #calendar table
@@ -64,8 +63,27 @@ h1
     height: 100%;
 }
 
+#calendar table th
+{
+    vertical-align: bottom;
+}
+
 #calendar table tr, td
 {
-    border: solid;
+    font-size:      85%;
+    table-layout:   fixed;
+    border:         solid;
+    border-width:   thin;
 }
+
+#calendar table td
+{
+    table-layout:   fixed;
+    width:          calc(100% / 7);
+    text-align:     right;
+    vertical-align: top;
+    height:         calc(100% / 7);
+}
+
+
 
