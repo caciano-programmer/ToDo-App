@@ -50,4 +50,22 @@ h1
     font-weight:    bold;
 }
 
+#calendar
+{
+    margin:         auto;
+    width:          800px;
+    height:         550px;
+    border-style:   solid;
+}
+
+#calendar table
+{
+    width:  100%;
+    height: 100%;
+}
+
+#calendar table tr, td
+{
+    border: solid;
+}
 

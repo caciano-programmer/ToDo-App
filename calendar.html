@@ -11,7 +11,37 @@
     <title>Calendar</title>
 </head>
 <body>
-<h1>Caciano's ToDo App</h1>
+
+<h1 id="month"></h1>
+<script type="text/javascript">
+    var month = new Date().getMonth();
+    var months = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+    document.getElementById("month").innerHTML = months[month];
+</script>
+<div id="calendar">
+    <table>
+        <tr>
+            <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+        </tr>
+        <tr>
+            <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+        </tr>
+        <tr>
+            <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+        </tr>
+        <tr>
+            <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+        </tr>
+        <tr>
+            <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+        </tr>
+        <tr>
+            <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+        </tr>
+    </table>
+</div>
+<script src="calendar.js"></script>
 
 </body>
 </html>
