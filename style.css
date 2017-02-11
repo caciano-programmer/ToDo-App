@@ -85,5 +85,8 @@ h1
     height:         calc(100% / 7);
 }
 
-
+#monthHeader div
+{
+    display:    inline-block;
+}
 
