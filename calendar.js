@@ -21,7 +21,7 @@ function fillCalendar(date)
                 $(td).append(day++);
                 $(td).css("background-color", "#dcecef");
                 $(td).hover(function () {
-                    $(td).css("background-color", "#b1eded");
+                        $(td).css("background-color", "#b1eded");
                 }, function () {
                     $(td).css("background-color", "#dcecef");
                 });
@@ -42,6 +42,7 @@ function changeMonth()
             let month = new Date();
             month.setMonth(current.getMonth() - 1);
             current = month;
+            $('#table td').off();
             fillCalendar(month);
         })
     });
@@ -52,6 +53,7 @@ function changeMonth()
             let month = new Date();
             month.setMonth(current.getMonth() + 1);
             current = month;
+            $('#table td').off();
             fillCalendar(month);
         })
     });
