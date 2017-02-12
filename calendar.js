@@ -28,6 +28,7 @@ function fillCalendar(date)
             }
             else {
                 let td = document.getElementById("table").rows[row].cells[cell];
+                td.innerText = "";
                 $(td).css("background-color", "#dbdbd6");
             }
         }
