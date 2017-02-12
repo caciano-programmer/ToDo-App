@@ -90,3 +90,9 @@ h1
     display:    inline-block;
 }
 
+#monthHeader img:hover
+{
+    width:  100px;
+    height: 75px;
+}
+
