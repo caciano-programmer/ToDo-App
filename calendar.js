@@ -25,6 +25,8 @@ function fillCalendar(date)
                 }, function () {
                     $(td).css("background-color", "#dcecef");
                 });
+                $(td).click(function(){ $("#popup").css("visibility", "visible"); });
+                $("#popup #event-buttons #cancel-popup").click(function(){ $("#popup").css("visibility", "hidden") });
             }
             else {
                 let td = document.getElementById("table").rows[row].cells[cell];
@@ -59,5 +61,3 @@ function changeMonth()
         })
     });
 } changeMonth();
-
-

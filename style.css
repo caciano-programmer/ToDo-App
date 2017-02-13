@@ -72,8 +72,7 @@ h1
 {
     font-size:      85%;
     table-layout:   fixed;
-    border:         solid;
-    border-width:   thin;
+    border:         thin solid;
 }
 
 #calendar table td
@@ -92,8 +91,8 @@ h1
 
 #monthHeader img:hover
 {
-    width:  200px;
-    height: 150px;
+    width:  150px;
+    height: 100px;
 }
 
 #popup
