@@ -1,5 +1,4 @@
 {
-
   "name": "todo-app",
   "version": "1.0.0",
   "private": true,
@@ -23,5 +22,4 @@
     "url": "https://github.com/caciano-programmer/ToDo-App/issues"
   },
   "homepage": "https://github.com/caciano-programmer/ToDo-App#readme"
-
 }
