@@ -2,13 +2,27 @@
  * Created by Caciano on 2/15/2017.
  */
 
-const http  = require("http");
+const path = require("path");
+const express = require("express");
+const app = express();
 
-const server = http.createServer(function(req, res)
-{
-
-}).listen(3000, function(){
-    console.log("the server connected successfully!");
+app.set("view engine", "jade");
+app.use(express.static(path.join(__dirname, 'public')));
+app.get("/", function(req, res){
+    res.render("login");
 });
+app.get("/sign-up.html", function(req, res){
+    res.render("sign-up");
+});
+app.get("/login.html", function(req, res){
+    res.render("login");
+});
+
+app.listen("3000");
+
+
+
+
+
 
 

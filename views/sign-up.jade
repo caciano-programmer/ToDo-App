@@ -1,0 +1,26 @@
+//Created by Caciano on 2/16/2017.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        script(src='https://code.jquery.com/jquery-3.1.1.min.js', integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=', crossorigin='anonymous')
+        link(rel='stylesheet', type='text/css', href='css/style.css')
+        title Caciano's ToDo App
+    body
+        h1 Sign Up
+        form
+            .container
+                .inputs
+                    label Input Email:
+                    input(type='email', name='user_email', required='required')
+                .inputs
+                    label Choose Password:
+                    input(type='password', required='required')
+                .inputs
+                    label Confirm Password:
+                    input(type='password', name='user_password', required='required')
+                div
+                    button#cancel(type='button') Cancel
+                    button(type='button') Sign up
+        script(src='javascript/sign-up.js')

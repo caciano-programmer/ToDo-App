@@ -1,0 +1,117 @@
+//Created by Caciano on 2/16/2017.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        script(src='https://code.jquery.com/jquery-3.1.1.min.js', integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=', crossorigin='anonymous')
+        link(rel='stylesheet', type='text/css', href='css/style.css')
+        title Calendar
+    body
+        h1#monthHeader(align='center')
+            #arrowL
+                img#left(src='images/arrow2.png', alt='left arrow', width='75', height='50')
+            #month
+            #arrowR
+                img#right(src='images/arrow1.png', alt='right arrow', width='75', height='50')
+        #calendar
+            table#table
+                tr
+                    th(scope='col') Sunday
+                    th(scope='col') Monday
+                    th(scope='col') Tuesday
+                    th(scope='col') Wednesday
+                    th(scope='col') Thursday
+                    th(scope='col') Friday
+                    th(scope='col') Saturday
+                tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+        #popup(style='visibility: hidden')
+            #container
+                h2 Enter New Event
+                form
+                    #event-title
+                        label Event title:
+                        input(type='text', name='event', maxlength='100')
+                    #event-details
+                        label Event details:
+                        textarea(name='details', rows='5', maxlength='1000')
+                    #hour
+                        select(name='hours-list')
+                            option(value='start') hour
+                            option(value='1') 1
+                            option(value='2') 2
+                            option(value='3') 3
+                            option(value='4') 4
+                            option(value='5') 5
+                            option(value='6') 6
+                            option(value='7') 7
+                            option(value='8') 8
+                            option(value='9') 9
+                            option(value='10') 10
+                            option(value='11') 11
+                            option(value='12') 12
+                    #minutes
+                        select(name='minutes-list')
+                            option(value='start') minutes
+                            option(value='0') 0
+                            option(value='15') 15
+                            option(value='30') 30
+                            option(value='45') 45
+                    #am-fm
+                        label
+                            | am
+                            input(type='radio', value='am')
+                        label
+                            | fm
+                            input(type='radio', value='fm')
+                    #event-buttons
+                        button#cancel-popup(type='button') Cancel
+                        button#submit-popup(type='button') Submit
+        script(src='javascript/calendar.js')
