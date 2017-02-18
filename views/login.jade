@@ -13,10 +13,10 @@ html(lang='en')
             .container
                 .inputs
                     label Email:
-                    input(type='email', name='email', required='required')
+                    input(id="login-email", type='email', name='email', required='required', maxlength="50")
                 .inputs
                     label Password:
-                    input(type='password', name='password', required='required')
+                    input(id="login-pass",type='password', name='password', required='required', maxlength="30")
                 div
                     button#login(type='button') Login
                     button#new(type='button') New Here?
