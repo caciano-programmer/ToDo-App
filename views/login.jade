@@ -9,15 +9,15 @@ html(lang='en')
         title Caciano's ToDo App
     body
         h1 Caciano's ToDo App
-        form
+        form(method="POST")
             .container
                 .inputs
                     label Email:
-                    input(id="login-email", type='email', name='email', required='required', maxlength="50")
+                    input(type='email', name='loginEmail', required='required', maxlength="50")
                 .inputs
                     label Password:
-                    input(id="login-pass",type='password', name='password', required='required', maxlength="30")
+                    input(type='password', name='loginPass', required='required', maxlength="30")
                 div
-                    button#login(type='button') Login
-                    button#new(type='button') New Here?
+                    button#login-submit(type='submit') Login
+                    button#newuser(type='button') New Here?
         script(src='javascript/login.js')
