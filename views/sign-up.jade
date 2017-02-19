@@ -1,6 +1,7 @@
 //Created by Caciano on 2/16/2017.
 
 doctype html
+// Created by Caciano on 2/16/2017.
 html(lang='en')
     head
         meta(charset='UTF-8')
@@ -9,18 +10,15 @@ html(lang='en')
         title Caciano's ToDo App
     body
         h1 Sign Up
-        form
+        form(method='POST')
             .container
                 .inputs
                     label Input Email:
                     input(type='email', name='user_email', required='required')
                 .inputs
-                    label Choose Password:
-                    input(type='password', required='required')
-                .inputs
                     label Confirm Password:
-                    input(type='password', name='user_password', required='required')
+                    input#confirm(type='password', name='user_password', required='required')
                 div
-                    button#cancel(type='button') Cancel
+                    button#cancel(type='button', onclick='window.location = "login.html"') Cancel
                     button(type='submit') Sign up
         script(src='javascript/sign-up.js')
