@@ -75,16 +75,16 @@ html(lang='en')
         #popup(style='visibility: hidden')
             #container
                 h2 Enter New Event
-                form
+                form(method='POST', id="popup_form")
                     #event-title
                         label Event title:
-                        input(type='text', name='event', maxlength='100')
+                        input(type='text', name='event', maxlength='100', required='required')
                     #event-details
                         label Event details:
-                        textarea(name='details', rows='5', maxlength='1000')
+                        textarea(name='details', rows='5', maxlength='1000', required='required')
                     #hour
-                        select(name='hours-list')
-                            option(value='start') hour
+                        select(name='hours-list', required='required')
+                            option(hidden='hidden', value='') hour
                             option(value='1') 1
                             option(value='2') 2
                             option(value='3') 3
@@ -98,8 +98,8 @@ html(lang='en')
                             option(value='11') 11
                             option(value='12') 12
                     #minutes
-                        select(name='minutes-list')
-                            option(value='start') minutes
+                        select(name='minutes-list', required='required')
+                            option(hidden='hidden', value='') minutes
                             option(value='0') 0
                             option(value='15') 15
                             option(value='30') 30
@@ -107,11 +107,11 @@ html(lang='en')
                     #am-fm
                         label
                             | am
-                            input(type='radio', value='am')
+                            input(type='radio', value='am', name='am-pm', checked='checked')
                         label
-                            | fm
-                            input(type='radio', value='fm')
+                            | pm
+                            input(type='radio', value='pm', name='am-pm')
                     #event-buttons
                         button#cancel-popup(type='button') Cancel
-                        button#submit-popup(type='button') Submit
+                        button#submit-popup(type='submit') Submit
         script(src='javascript/calendar.js')

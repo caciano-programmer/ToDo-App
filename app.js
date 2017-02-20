@@ -9,16 +9,6 @@ const parse = require("body-parser");
 const MongoClient = require('mongodb').MongoClient;
 const mongoURL = "mongodb://localhost:27017/calendar";
 
-function user(email, password) {this.email = email; this.password = password;}
-
-function event(description, details, date, time)
-{
-    this.description = description;
-    this.details = details;
-    this.date = date;
-    this.time = time;
-}
-
 app.set("view engine", "jade");
 app.use(parse.json());
 app.use(parse.urlencoded({extended: true}));
@@ -40,16 +30,17 @@ MongoClient.connect(mongoURL, (err,db) =>
     });
     app.post("/login.html", (req, res) => {
         var email = req.body.loginEmail, password = req.body.loginPass;
-        console.log(email + " " + password);
         res.redirect("calendar.html");
     });
     app.post("/sign-up.html", (req, res) => {
         var email = req.body.user_email, password = req.body.user_password;
-        console.log(email + " " + password);
         res.redirect("calendar.html");
     })
     app.get("/calendar.html", function(req, res){
         res.render("calendar");
+    });
+    app.post("/calendar.html", (req, res) => {
+        console.log(req.body);
     });
 
     db.close();
