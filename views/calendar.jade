@@ -72,10 +72,10 @@ html(lang='en')
                     td
                     td
                     td
-        #popup(style='visibility: hidden')
-            #container
+        .popup(id="newPopup", style='visibility: hidden')
+            .calendar_container
                 h2 Enter New Event
-                form(method='POST', id="popup_form")
+                form#popup_form(method='POST')
                     #event-title
                         label Event title:
                         input(type='text', name='event', maxlength='100', required='required')
@@ -113,5 +113,9 @@ html(lang='en')
                             input(type='radio', value='pm', name='am-pm')
                     #event-buttons
                         button#cancel-popup(type='button') Cancel
+                        button#view_events(type='button') View Events
                         button#submit-popup(type='submit') Submit
+        .popup(id="eventList", style="visibility: hidden")
+            .calendar_container
+                h2 Listed Events
         script(src='javascript/calendar.js')

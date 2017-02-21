@@ -27,10 +27,10 @@ function fillCalendar(date)
                 });
                 $(td).click(function(){
                     document.getElementById("popup_form").reset();
-                    $("#popup").css("visibility", "visible");
+                    $("#newPopup").css("visibility", "visible");
                 });
-                $("#popup #event-buttons #cancel-popup").click(function(){
-                    $("#popup").css("visibility", "hidden");
+                $(".popup #event-buttons #cancel-popup").click(function(){
+                    $(".popup").css("visibility", "hidden");
                     document.getElementById("popup_form").reset();
                 });
             }
@@ -68,6 +68,15 @@ function changeMonth()
     });
 } changeMonth();
 
-$("form").submit( () => { $("#popup").css("visibility", "hidden"); });
+function listedEvents()
+{
+    $(".popup #view_events").click( () => {
+        $("#newPopup").css("visibility", "hidden");
+        document.getElementById("popup_form").reset();
+        $("#eventList").css("visibility", "visible");
+    })
+}listedEvents();
+
+$("form").submit( () => { $(".popup").css("visibility", "hidden"); });
 
 

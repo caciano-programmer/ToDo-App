@@ -95,7 +95,7 @@ h1
     height: 80px;
 }
 
-#popup
+.popup
 {
     position: absolute;
     top: 0;
@@ -106,7 +106,7 @@ h1
     background-color: rgba(0,0,0,0.7);
 }
 
-#container
+.calendar_container
 {
     position:           absolute;
     margin:             auto;
@@ -124,7 +124,7 @@ h2
     padding-bottom: 15px;
 }
 
-#popup form #event-details label, #event-title label
+.popup form #event-details label, #event-title label
 {
     width:          120px;
     padding-left:   15px;
@@ -138,7 +138,7 @@ h2
     margin-top: 40px;
 }
 
-#popup form #event-title input, #event-details textarea
+.popup form #event-title input, #event-details textarea
 {
     width:  320px;
 }
@@ -148,7 +148,7 @@ h2
     vertical-align: top;
 }
 
-#popup #container #hour, #minutes, #am-fm
+.popup .calendar_container #hour, #minutes, #am-fm
 {
     text-align:     left;
     margin-top:     40px;
@@ -156,25 +156,27 @@ h2
 }
 
 
-#popup #container #am-fm label
+.popup .calendar_container #am-fm label
 {
     display: inline-block;
 }
 
-#popup #minutes
+.popup #minutes
 {
     margin-right: 80px;
 }
 
-#popup button
+.popup button
 {
     margin-top: 40px;
 }
 
-#popup button:first-child
+.popup button:first-child, .popup button:nth-child(2)
 {
     margin-right: 80px;
 }
+
+
 
 
 

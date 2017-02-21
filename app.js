@@ -13,6 +13,7 @@ app.set("view engine", "jade");
 app.use(parse.json());
 app.use(parse.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.disable('x-powered-by');
 
 MongoClient.connect(mongoURL, (err,db) =>
 {
