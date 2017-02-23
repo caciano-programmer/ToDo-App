@@ -26,8 +26,16 @@ function fillCalendar(date)
                     $(td).css("background-color", "#dcecef");
                 });
                 $(td).click(function(){
+                    current.setDate(parseInt(td.innerText));
                     document.getElementById("popup_form").reset();
                     $("#newPopup").css("visibility", "visible");
+                    $("form").submit( () =>
+                    {
+                        document.getElementById("currentDay").value = current.getDate();
+                        document.getElementById("currentMonth").value = current.getMonth();
+                        document.getElementById("currentYear").value = current.getYear();
+                        $(".popup").css("visibility", "hidden");
+                    });
                 });
                 $(".popup #event-buttons #cancel-popup").click(function(){
                     $(".popup").css("visibility", "hidden");
@@ -48,22 +56,18 @@ function changeMonth()
     {
         $("#left").click(function()
         {
-            let month = new Date();
-            month.setMonth(current.getMonth() - 1);
-            current = month;
+            current.setMonth(current.getMonth() - 1)
             $('#table td').off();
-            fillCalendar(month);
+            fillCalendar(current);
         })
     });
     $(document).ready( function()
     {
         $("#right").click(function()
         {
-            let month = new Date();
-            month.setMonth(current.getMonth() + 1);
-            current = month;
+            current.setMonth(current.getMonth() + 1)
             $('#table td').off();
-            fillCalendar(month);
+            fillCalendar(current);
         })
     });
 } changeMonth();
@@ -77,6 +81,14 @@ function listedEvents()
     })
 }listedEvents();
 
-$("form").submit( () => { $(".popup").css("visibility", "hidden"); });
+function closeButton()
+{
+    $("#eventList #close_events").click(() =>
+    {
+        $("#eventList").css("visibility", "hidden");
+    });
+}closeButton();
+
+
 
 

@@ -29,19 +29,27 @@ MongoClient.connect(mongoURL, (err,db) =>
     app.get("/sign-up.html", function(req, res){
         res.render("sign-up");
     });
-    app.post("/login.html", (req, res) => {
-        var email = req.body.loginEmail, password = req.body.loginPass;
-        res.redirect("calendar.html");
-    });
-    app.post("/sign-up.html", (req, res) => {
-        var email = req.body.user_email, password = req.body.user_password;
-        res.redirect("calendar.html");
-    })
     app.get("/calendar.html", function(req, res){
         res.render("calendar");
     });
+    app.post("/login.html", (req, res) => {
+        var user =
+            {
+                email: req.body.loginEmail,
+                password: req.body.loginPass
+            }
+        res.redirect("calendar.html");
+    });
+    app.post("/sign-up.html", (req, res) => {
+        var user =
+            {
+                email: req.body.user_email,
+                password: req.body.user_password
+            }
+        res.redirect("calendar.html");
+    })
     app.post("/calendar.html", (req, res) => {
-        console.log(req.body);
+        console.log(req.body.am-pm);
     });
 
     db.close();

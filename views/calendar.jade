@@ -115,10 +115,15 @@ html(lang='en')
                         button#cancel-popup(type='button') Cancel
                         button#view_events(type='button') View Events
                         button#submit-popup(type='submit') Submit
+                    input(id="currentDay", type="hidden", name="day")
+                    input(id="currentMonth", type="hidden", name="month")
+                    input(id="currentYear", type="hidden", name="year")
         .popup(id="eventList", style="visibility: hidden")
             .calendar_container
                 h2 Listed Events
+                button#close_events(type="button") <b>X</b>
                 div#listContainer
-
-
+                    div
+                        p This is the event title
+                        P this is the description of the event
         script(src='javascript/calendar.js')

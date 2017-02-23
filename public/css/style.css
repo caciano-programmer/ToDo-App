@@ -184,11 +184,40 @@ h2
     height:     80%;
     left:       0;
     bottom:     0;
+    overflow-y: scroll;
 }
 
+#eventList #close_events
+{
+    position:   absolute;
+    height:     25px;
+    width:      25px;
+    top:        0;
+    right:      0;
+    margin:     0;
+    background: red;
+    border:     1px solid black;
+    color:      azure;
+    text-align: center;
+}
 
+#eventList #close_events:hover
+{
+    background: #f43f3f;
+    color:      #f4e73f;
+}
 
-
+#eventList #listContainer div
+{
+    border:     2px solid black;
+    margin:     25px;
+    width:      430px;
+    height:     100px;
+    background: #f4f4f4;
+    font-size:  smaller;
+    overflow-y: scroll;
+    text-wrap:  normal;
+}
 
 
 
