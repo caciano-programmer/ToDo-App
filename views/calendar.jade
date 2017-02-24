@@ -83,7 +83,7 @@ html(lang='en')
                         label Event details:
                         textarea(name='details', rows='5', maxlength='1000', required='required')
                     #hour
-                        select(name='hours-list', required='required')
+                        select(name='hoursList', required='required')
                             option(hidden='hidden', value='') hour
                             option(value='1') 1
                             option(value='2') 2
@@ -98,7 +98,7 @@ html(lang='en')
                             option(value='11') 11
                             option(value='12') 12
                     #minutes
-                        select(name='minutes-list', required='required')
+                        select(name='minutesList', required='required')
                             option(hidden='hidden', value='') minutes
                             option(value='0') 0
                             option(value='15') 15
@@ -107,10 +107,10 @@ html(lang='en')
                     #am-fm
                         label
                             | am
-                            input(type='radio', value='am', name='am-pm', checked='checked')
+                            input(type='radio', value='am', name='ampm', checked='checked')
                         label
                             | pm
-                            input(type='radio', value='pm', name='am-pm')
+                            input(type='radio', value='pm', name='ampm')
                     #event-buttons
                         button#cancel-popup(type='button') Cancel
                         button#view_events(type='button') View Events
@@ -124,6 +124,4 @@ html(lang='en')
                 button#close_events(type="button") <b>X</b>
                 div#listContainer
                     div
-                        p This is the event title
-                        P this is the description of the event
         script(src='javascript/calendar.js')

@@ -32,8 +32,8 @@ function fillCalendar(date)
                     $("form").submit( () =>
                     {
                         document.getElementById("currentDay").value = current.getDate();
-                        document.getElementById("currentMonth").value = current.getMonth();
-                        document.getElementById("currentYear").value = current.getYear();
+                        document.getElementById("currentMonth").value = (current.getMonth());
+                        document.getElementById("currentYear").value = current.getFullYear();
                         $(".popup").css("visibility", "hidden");
                     });
                 });
