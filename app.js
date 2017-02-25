@@ -7,22 +7,27 @@ const express = require("express");
 const app = express();
 const parse = require("body-parser");
 const mongoose = require("mongoose");
+const Session = require("express-session");
+const logger = require("morgan");
+const MongoStore = require("connect-mongo")(Session);
+
+mongoose.Promise = global.Promise;
+var Schema = mongoose.Schema;
+mongoose.connect("mongodb://localhost:27017/mongo_data", (err) => { if(err) throw err; });
 
 app.set("view engine", "jade");
 app.use(parse.json());
 app.use(parse.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger("dev"));
+app.use(Session( { secret: "ThisIsCookieCode", saveUninitialized: false, resave: false,
+    store: new MongoStore({mongooseConnection: mongoose.connection}) }));
 app.disable('x-powered-by');
-
-mongoose.Promise = global.Promise;
-var Schema = mongoose.Schema;
-mongoose.connect("mongodb://localhost:27017/mongo_data", (err) => { if(err) console.log(err); });
-var db = mongoose.connection;
 
 const userSchema = new Schema
 ({
     email: {type: String, required: true, index: {unique: true}},
-    password: {type: String, required: true, unique: true}
+    password: {type: String, required: true, unique: false}
 });
 const eventSchema = new Schema
 ({
@@ -66,12 +71,14 @@ app.post("/sign-up.html", (req, res) => {
             password: req.body.user_password
         };
     let user = new User(obj);
-    user.save((err) => {if(err) throw err;} );
-    User.find( {}, (err, docs) =>
+    user.save((err) =>
     {
-        console.log(docs);
-    });
-
+        if(err) throw err;
+        User.find( {}, (err, docs) =>
+        {
+            console.log(docs);
+        });
+    } );
     res.redirect("calendar.html");
 })
 app.post("/calendar.html", (req, res) => {
