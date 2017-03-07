@@ -219,6 +219,16 @@ h2
     text-wrap:  normal;
 }
 
+a:link
+{
+    font-size: medium;
+    padding-left: 150px;
+}
+
+#monthHeader
+{
+    padding-left: 185px;
+}
 
 
 

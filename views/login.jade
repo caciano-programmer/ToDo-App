@@ -13,11 +13,10 @@ html(lang='en')
             .container
                 .inputs
                     label Email:
-                    input(type='email', name='loginEmail', required='required', maxlength="50")
+                    input(type='email', name='email', required='required', maxlength="50")
                 .inputs
                     label Password:
-                    input(type='password', name='loginPass', required='required', maxlength="30")
+                    input(type='password', name='password', required='required', maxlength="30")
                 div
                     button#login-submit(type='submit') Login
-                    button#newuser(type='button', onclick='window.location="sign-up.html"') New Here?
-        script(src='javascript/login.js')
+                    button#newuser(type='button', onclick='window.location="sign-up"') New Here?

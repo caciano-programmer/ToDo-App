@@ -14,11 +14,10 @@ html(lang='en')
             .container
                 .inputs
                     label Input Email:
-                    input(type='email', name='user_email', required='required')
+                    input(type='email', name='email', required='required', maxlength="50")
                 .inputs
                     label Choose Password:
-                    input#confirm(type='password', name='user_password', required='required')
+                    input#confirm(type='password', name='password', required='required', maxlength="30", minlength="5")
                 div
-                    button#cancel(type='button', onclick='window.location = "login.html"') Cancel
+                    button#cancel(type='button', onclick='window.location = "login"') Cancel
                     button(type='submit') Sign up
-        script(src='javascript/sign-up.js')
