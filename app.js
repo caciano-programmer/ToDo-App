@@ -35,10 +35,12 @@ app.get("/", function(req, res){
     res.redirect("login");
 });
 app.get("/login", notLoggedIn, function(req, res){
-    res.render("login");
+    let messages = req.flash("error");
+    res.render("login", {messages: messages});
 });
 app.get("/sign-up", notLoggedIn, function(req, res){
-    res.render("sign-up");
+    let messages = req.flash("error");
+    res.render("sign-up", {messages: messages});
 });
 app.get("/calendar", isLoggedIn, function(req, res){
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
