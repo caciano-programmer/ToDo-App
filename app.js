@@ -8,11 +8,12 @@ const app = express();
 const parse = require("body-parser");
 const cookie = require("cookie-parser");
 const mongoose = require("mongoose");
-const Session = require("express-session");
+const session = require("express-session");
 const logger = require("morgan");
-const MongoStore = require("connect-mongo")(Session);
+const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 const passport = require("passport");
+const Event = require("./models/events");
 require("./config/passport");
 
 mongoose.Promise = global.Promise;
@@ -24,7 +25,7 @@ app.use(parse.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger("dev"));
 app.use(cookie());
-app.use(Session( { secret: "ThisIsCookieCode", saveUninitialized: false, resave: false,
+app.use(session( { secret: "ThisIsCookieCode", saveUninitialized: false, resave: false,
     store: new MongoStore({mongooseConnection: mongoose.connection}) }));
 app.use(flash());
 app.use(passport.initialize());
@@ -60,8 +61,22 @@ app.post("/sign-up", passport.authenticate("local.sign-up", {
     failureRedirect: "sign-up",
     failureFlash: true
 }));
-app.post("/calendar.html", (req, res) => {
-
+app.post("/calendar", (req, res) => {
+    let id = req.user.id;
+    let date = new Date(parseInt(req.body.year), parseInt(req.body.month), parseInt(req.body.day));
+    let newEvent = new Event({
+        user: id,
+        event: req.body.event,
+        details: req.body.details,
+        hour: req.body.hoursList,
+        minutes: req.body.minutesList,
+        am_pm: req.body.ampm,
+        date: date
+    });
+    newEvent.save( (err, result) => {
+        if(err) throw err;
+    });
+    res.redirect("calendar");
 });
 
 function isLoggedIn(req, res, next)

@@ -15,3 +15,5 @@ const eventSchema = new Schema
     am_pm: {type: String, required: true},
     date: {type: Date, required: true},
 });
+
+module.exports = mongoose.model("Events", eventSchema);
