@@ -1,0 +1,25 @@
+<!--Created by Caciano on 2/16/2017.-->
+<!DOCTYPE html>
+<!-- Created by Caciano on 2/16/2017.-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Caciano's ToDo App</title>
+</head>
+
+<body>
+  <h1>Sign Up</h1>
+  <h3>{{messages}}</h3>
+  <form method="POST">
+    <div class="container">
+      <div class="inputs"><label>Input Email:</label><input type="email" name="email" required="required" maxlength="50"></div>
+      <div class="inputs"><label>Choose Password:</label><input id="confirm" type="password" name="password" required="required" maxlength="30" minlength="5"></div>
+      <div><button id="cancel" type="button" onclick="window.location = &quot;login&quot;">Cancel</button><button type="submit">Sign up</button></div>
+    </div>
+  </form>
+</body>
+
+</html>

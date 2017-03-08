@@ -235,5 +235,10 @@ h3
     color: red;
 }
 
+#listContainer div p
+{
+    text-align: left;
+}
+
 
 

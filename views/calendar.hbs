@@ -1,0 +1,114 @@
+<!--Created by Caciano on 2/16/2017.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Calendar</title>
+</head>
+
+<body>
+  <h1 id="monthHeader" align="center">
+    <div id="arrowL"><img id="left" src="images/arrow2.png" alt="left arrow" width="75" height="50"></div>
+    <div id="month"></div>
+    <div id="arrowR"><img id="right" src="images/arrow1.png" alt="right arrow" width="75" height="50"></div><a href="logout">Logout</a></h1>
+  <div id="calendar">
+    <table id="table">
+      <tr>
+        <th scope="col">Sunday</th>
+        <th scope="col">Monday</th>
+        <th scope="col">Tuesday</th>
+        <th scope="col">Wednesday</th>
+        <th scope="col">Thursday</th>
+        <th scope="col">Friday</th>
+        <th scope="col">Saturday</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <div id="newPopup" style="visibility: hidden" class="popup">
+    <div class="calendar_container">
+      <h2>Enter New Event</h2>
+      <form id="popup_form" method="POST">
+        <div id="event-title"><label>Event title:</label><input type="text" name="event" maxlength="100" required="required"></div>
+        <div id="event-details"><label>Event details:</label><textarea name="details" rows="5" maxlength="1000" required="required"></textarea></div>
+        <div id="hour"><select name="hoursList" required="required"><option hidden="hidden" value="{{''}}">hour</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select></div>
+        <div id="minutes"><select name="minutesList" required="required"><option hidden="hidden" value="{{''}}">minutes</option><option value="00">00</option><option value="15">15</option><option value="30">30</option><option value="45">45</option></select></div>
+    <div id="am-fm"><label>am<input type="radio" value="am" name="ampm" checked="checked"></label><label>pm<input type="radio" value="pm" name="ampm"></label></div>
+    <div id="event-buttons"><button id="cancel-popup" type="button">Cancel</button><button id="view_events" type="button">View Events</button><button id="submit-popup" type="submit">Submit</button></div><input id="currentDay" type="hidden" name="day"><input id="currentMonth"
+      type="hidden" name="month"><input id="currentYear" type="hidden" name="year"></form>
+  </div>
+  </div>
+  <div id="eventList" style="visibility: hidden" class="popup">
+    <div class="calendar_container">
+      <h2>Listed Events</h2><button id="close_events" type="button"><b>X</b></button>
+      <div id="listContainer">
+          {{# each events}}
+            <div>
+                <p><strong>Event:</strong> title: {{this.event}}</p>
+                <p><strong>Details:</strong> {{this.details}}</p>
+                <p><strong>Date:</strong> {{this.month}}-{{this.day}}-{{this.year}}  {{this.hour}}:{{this.minutes}} {{this.am_pm}}</p>
+          </div>
+          {{/each}}
+      </div>
+    </div>
+  </div>
+  <script src="javascript/calendar.js"></script>
+</body>
+
+</html>

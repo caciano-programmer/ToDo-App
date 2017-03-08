@@ -7,6 +7,7 @@ const express = require("express");
 const app = express();
 const parse = require("body-parser");
 const cookie = require("cookie-parser");
+const hbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const logger = require("morgan");
@@ -19,7 +20,9 @@ require("./config/passport");
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/mongo_data", (err) => { if(err) throw err; });
 
-app.set("view engine", "jade");
+app.engine("hbs", hbs({extname: "hbs"}));
+app.set('view engine', 'hbs');
+
 app.use(parse.json());
 app.use(parse.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -45,7 +48,10 @@ app.get("/sign-up", notLoggedIn, function(req, res){
 });
 app.get("/calendar", isLoggedIn, function(req, res){
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-    res.render("calendar");
+    Event.find({user: req.user.id}, (err, events) => {
+        if(err) throw err;
+        res.render("calendar", {events: events});
+    });
 });
 app.get("/logout", (req, res) => {
     req.logout();
@@ -63,7 +69,6 @@ app.post("/sign-up", passport.authenticate("local.sign-up", {
 }));
 app.post("/calendar", (req, res) => {
     let id = req.user.id;
-    let date = new Date(parseInt(req.body.year), parseInt(req.body.month), parseInt(req.body.day));
     let newEvent = new Event({
         user: id,
         event: req.body.event,
@@ -71,11 +76,11 @@ app.post("/calendar", (req, res) => {
         hour: req.body.hoursList,
         minutes: req.body.minutesList,
         am_pm: req.body.ampm,
-        date: date
+        month: req.body.month,
+        day: req.body.day,
+        year: req.body.year,
     });
-    newEvent.save( (err, result) => {
-        if(err) throw err;
-    });
+    newEvent.save( (err, result) => { if(err) throw err; });
     res.redirect("calendar");
 });
 
