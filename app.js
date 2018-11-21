@@ -18,7 +18,7 @@ const Event = require("./models/events");
 require("./config/passport");
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/mongo_data", (err) => { if(err) throw err; });
+mongoose.connect("mongodb://127.0.0.1:27017/mongo_data", (err) => { if(err) throw err; });
 
 app.engine("hbs", hbs({extname: "hbs"}));
 app.set('view engine', 'hbs');
