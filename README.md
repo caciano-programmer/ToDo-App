@@ -2,7 +2,9 @@
 
 A todo-calendar app that requires login and uses node and mongodb for the backend,
 and uses passport, express-session, and bcrypt for user sessions,user validation, and
-password encryption
+password encryption.
+
+Works best on chrome browser, other browsers may be buggy.
 
 # How to Run
 
